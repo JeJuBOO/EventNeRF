@@ -16,7 +16,7 @@ See NeRF++ sections on [data](https://github.com/Kai-46/nerfplusplus#data) and [
 Please contact us if you need to adapt your own event stream as it might need updates to the code.
 
 ## Create environment
-
+--Change "ipython=7.30.0=py39hf3d152e_0" to "ipython" in line 93 of the environment.yml because of ResolnPackageNotFound error. 
 ```
 conda env create --file environment.yml
 conda activate eventnerf
