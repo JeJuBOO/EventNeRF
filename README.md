@@ -1,3 +1,30 @@
+
+environment.yml이 충돌로 인해 진행 되지 않아 아래의 코드로 환경을 설정함.
+```python
+conda install numpy=1.21
+conda install pytorch==1.10 cudatoolkit=11.3 -c pytorch
+conda install -c conda-forge marching_cubes #version=0.3.1
+conda install -c conda-forge tqdm #version=4.66.2
+conda install matplotlib #version=3.8.0
+pip install opencv-python #version=4.9.0.80
+conda install imageio #version=2.33.1
+pip install numba #version=0.59.0
+pip install tensorboardX #version=2.6.2.2
+conda install configargparse #version=1.4
+```
+scripts와 config내의 경로를 설정.
+다음과 같이 입력하면 경로내의 문서가 바로 변환되어 저장되니 신중히 엔터를 누르시길.
+문서에는 <absolute-path-to-code>과 같은 형식으로 입력 되어있다. 이를 sed명령어를 이용하여 변환하는 작업
+
+예시) 절대 경로( /githubCode/eventNeRF, /anaconda3/envs/eventnerf)일 때 다음과 같이 작성
+```
+sed -i 's/<absolute-path-to-code>/\/githubCode\/eventNeRF/gi' configs/**/*.txt scripts/*.sh
+sed -i 's/<path-to-conda-env>/\/anaconda3\/envs\/eventnerf/gi' scripts/*.sh
+```
+
+
+
+----
 # [EventNeRF](https://4dqv.mpi-inf.mpg.de/EventNeRF/)
 [Viktor Rudnev](https://twitter.com/realr00tman), [Mohamed Elgharib](https://people.mpi-inf.mpg.de/~elgharib/), [Christian Theobalt](https://www.mpi-inf.mpg.de/~theobalt/), [Vladislav Golyanik](https://people.mpi-inf.mpg.de/~golyanik/)
 
