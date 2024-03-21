@@ -21,7 +21,10 @@ scripts와 config내의 경로를 설정.
 sed -i 's/<absolute-path-to-code>/\/githubCode\/eventNeRF/gi' configs/**/*.txt scripts/*.sh
 sed -i 's/<path-to-conda-env>/\/anaconda3\/envs\/eventnerf/gi' scripts/*.sh
 ```
-
+데이터 다운 받고 models.zip은 logs/ 파일을 만들어서 안에 저장하기. 아래와 같은 코드로 인해.
+```python
+f = os.path.join(args.basedir, args.expname, 'train_images.json')
+```
 
 
 ----
