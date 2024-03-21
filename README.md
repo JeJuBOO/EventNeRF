@@ -11,7 +11,10 @@ conda install imageio #version=2.33.1
 pip install numba #version=0.59.0
 pip install tensorboardX #version=2.6.2.2
 conda install configargparse #version=1.4
+conda install -c conda-forge scikit-image
+pip install --upgrade PyMCubes
 ```
+
 scripts와 config내의 경로를 설정.
 다음과 같이 입력하면 경로내의 문서가 바로 변환되어 저장되니 신중히 엔터를 누르시길.
 문서에는 <absolute-path-to-code>과 같은 형식으로 입력 되어있다. 이를 sed명령어를 이용하여 변환하는 작업
@@ -26,6 +29,11 @@ sed -i 's/<path-to-conda-env>/\/anaconda3\/envs\/eventnerf/gi' scripts/*.sh
 f = os.path.join(args.basedir, args.expname, 'train_images.json')
 ```
 
+ddp_mesh_nerf.py의 line 7에 skimage 라이브러리를 사용하는데 버전때문인지 없는 함수가 코드에 작성되어 있다. 따라서 작성자가 주석으로 해둔 pyMcube의 mcubes를 임포트 한다.
+```python
+import mcubes
+# from skimage.measure import marching_cubes as mcubes
+```
 
 ----
 # [EventNeRF](https://4dqv.mpi-inf.mpg.de/EventNeRF/)
